@@ -1,5 +1,146 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+	$(document).scroll(function () {
+		let $nav = $(".fixed-top_black");
+		$nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+	});
+	$(document).scroll(function () {
+		let $nav = $(".fixed-top_white");
+		$nav.toggleClass('scrolled_white', $(this).scrollTop() > $nav.height());
+	});
 
-	// Custom JS
+	$(".main-slider").slick({
+		autoplay: true,
+		fade: true,
+		dots: false,
+		arrows: false,
+		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/icon arrow.svg" alt=""></button>'
+	});
+	$(function () {
+		$('.service-item-block').equalHeights();
+	});
+	$(function () {
+		$('.service-item__title').equalHeights();
+	});
+	$(function () {
+		$('.service-item__text').equalHeights();
+	});
+	$(".news-block").slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		autoplay: true,
+		dots: false,
+		arrows: false,
+		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/chevron_right.svg" alt=""></button>',
+		responsive: [
+			{
+				breakpoint: 991,
+				settings: {
+					slidesToShow: 2,
+					prevArrow: '<button class = "prev arrow"></button>',
+					nextArrow: '<button class = "next arrow"></button>',
+					slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					prevArrow: '<button class = "prev arrow"></button>',
+					nextArrow: '<button class = "next arrow"></button>',
+				}
+			}
+		]
+	});
+	$(".news-block-item").on('swipe', function () {
+		console.log('hello');
+	});
+	$(".team-block").slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		centerMode: true,
+		autoplay: true,
+		dots: false,
+		arrows: false,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 2,
+					prevArrow: '<button class = "prev arrow"></button>',
+					nextArrow: '<button class = "next arrow"></button>',
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 991,
+				settings: {
+					slidesToShow: 2,
+					prevArrow: '<button class = "prev arrow"></button>',
+					nextArrow: '<button class = "next arrow"></button>',
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					prevArrow: '<button class = "prev arrow"></button>',
+					nextArrow: '<button class = "next arrow"></button>',
+				}
+			}
+		]
+	});
+	var time = 2, cc = 1;
+	$(window).scroll(function () {
+		$('#counter').each(function () {
+			var cPos = $(this).offset().top,
+				topWindow = $(window).scrollTop();
+			if (cPos < topWindow + 600) {
+				if (cc < 2) {
+					$('div').each(function () {
+						var
+							i = 1,
+							num = $(this).data('num'),
+							step = 1000 * time / num,
+							that = $(this),
+							int = setInterval(function () {
+								if (i <= num) {
+									that.html(i);
+								}
+								else {
+									cc = cc + 2;
+									clearInterval(int);
+								}
+								i++;
+							}, step);
+					});
+				}
 
+			}
+		});
+	});
+
+	$('#bodies').hover(function () {
+		$('#sub-menu').css("display", "block");
+		let $nav = $(".fixed-top--black");
+		$nav.addClass('scrolled');
+	});
+
+	$('#about').hover(function () {
+		$('#sub-menu1').css("display", "block");
+		let $nav = $(".fixed-top--black");
+		$nav.addClass('scrolled');
+	});
+
+	$('.main').hover(function () {
+		$('.sub-menu').css("display", "none");
+		let $nav = $(".fixed-top--black");
+		$nav.removeClass('scrolled');
+	});
+	$('#mobile-menu__btn').click(function () {
+		$('.hamburger--collapse').toggleClass('is-active');
+	});
+	$('.lang-choose').niceSelect();
 });

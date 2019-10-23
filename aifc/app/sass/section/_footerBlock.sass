@@ -1,0 +1,45 @@
+@import '../vars'
+
+.footer
+    padding: 53px 0
+    &-contacts
+        a
+            color: $accent
+            font-weight: 600
+            padding: 0 16px 
+            &:first-child
+                border-right: 1px solid $accent
+                padding-left: 0
+
+
+.subscribe
+    width: 100%
+    margin: 25px 0
+    input[type="email"]
+        border: 1px solid $accent
+        padding: 12px 0 12px 12px
+        width: 70%
+        max-width: 398px
+        margin-right: 16px
+        &::placeholder
+            color: $accent
+            font-weight: 600
+            font-size: 14px
+            text-transform: uppercase
+    button
+        border: 1px solid $accent
+        padding: 12px  0
+        background-color: transparent
+        color: $accent
+        width: 27%
+        font-weight: 600
+        transition: all .25s ease
+        &:hover
+            background-color: $accent
+            color: #fff
+    &_form
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+
+    
