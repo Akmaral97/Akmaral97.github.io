@@ -52,9 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		]
 	});
-	$(".news-block-item").on('swipe', function () {
-		console.log('hello');
-	});
+
 	$(".team-block").slick({
 		slidesToShow: 4,
 		slidesToScroll: 1,
@@ -143,4 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		$('.hamburger--collapse').toggleClass('is-active');
 	});
 	$('.lang-choose').niceSelect();
+	$('.grid-layout').masonry({
+		itemSelector: '.item',
+		columnWidth: 10,
+		gutter: 16
+
+	})
 });

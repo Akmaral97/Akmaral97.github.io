@@ -87,7 +87,13 @@
 					border-color: #009945
 					a
 						color: #fff
-
+.grid
+	&-container
+		max-width: 1200px
+		margin: 0 auto
+		padding: 0 15px
+	&-layout
+		margin-top: 32px
 .online
 	&-block
 		&__text
@@ -617,6 +623,7 @@ section.post-item
 	background-position: top center
 	background-size: contain
 	background-repeat: no-repeat
+	position: relative
 	&_violet
 		background-image: url('../img/news/news_violet.png')
 	&-btn
@@ -661,15 +668,16 @@ section.post-item
 		margin-right: 16px
 	&__b
 		margin-bottom: 16px
-
-.grid-layout 
-	display: flex
-	justify-content: space-between
-	margin-top: 32px
-	> div
-		margin-right: 16px
-	&::last-child
-		margin-right: 0
+.item
+	width: 273px
+	margin-bottom: 16px
+	img
+		width: 100%
+		height: auto
+.width-1 
+	width: 273px
+.width-2
+	width: 562px
 .sub-menu
 	position: absolute
 	background: #002554
