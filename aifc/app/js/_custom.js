@@ -28,9 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		autoplay: true,
-		dots: false,
-		arrows: false,
-		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/chevron_right.svg" alt=""></button>',
 		responsive: [
 			{
 				breakpoint: 991,
@@ -146,5 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		columnWidth: 10,
 		gutter: 16
 
-	})
+	});
+	
 });
