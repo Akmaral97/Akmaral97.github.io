@@ -9,12 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	$(".main-slider").slick({
-		autoplay: true,
+		autoplay: false,
 		fade: true,
-		dots: false,
-		arrows: false,
-		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/icon arrow.svg" alt=""></button>'
+		dots: true,
+		arrows: true,
+		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/icon arrow.svg" alt=""></button>',
+
 	});
+	$(document)
+		.on('click.bs.dropdown.data-api', '.dropdown', function (e) { e.stopPropagation() })
+
 	$(function () {
 		$('.service-item-block').equalHeights();
 	});
@@ -49,6 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		]
 	});
+
+	$('.management-blocks__btn a').click(function () {
+		console.log('Hello');
+		var get_id = this.id;
+		var get_current = $('.management-item .' + get_id);
+		$('.management-item')
+	});
+
 
 	$(".team-block").slick({
 		slidesToShow: 4,
@@ -117,23 +129,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 
-	$('#bodies').hover(function () {
-		$('#sub-menu').css("display", "block");
-		let $nav = $(".fixed-top--black");
-		$nav.addClass('scrolled');
+
+
+	$('.dropdown-toggle').click(function () {
+	
+			let $nav = $(".fixed-top_black");
+			$nav.addClass('scrolled');
+		
 	});
 
-	$('#about').hover(function () {
-		$('#sub-menu1').css("display", "block");
-		let $nav = $(".fixed-top--black");
-		$nav.addClass('scrolled');
-	});
 
-	$('.main').hover(function () {
-		$('.sub-menu').css("display", "none");
-		let $nav = $(".fixed-top--black");
-		$nav.removeClass('scrolled');
-	});
 	$('#mobile-menu__btn').click(function () {
 		$('.hamburger--collapse').toggleClass('is-active');
 	});
@@ -144,5 +149,5 @@ document.addEventListener("DOMContentLoaded", function () {
 		gutter: 16
 
 	});
-	
+
 });
