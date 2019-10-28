@@ -136,13 +136,17 @@ ul.accordion li:nth-child(1):hover
 			p
 				font-size: 24px
 				margin-bottom: 40px
-
+.container-fluid
+	display: flex
+	justify-content: space-between
+	align-items: center
 .slick-dotted.slick-slider
 	margin-bottom: 0
 .news-block
 	.slick-dots
 		bottom: -17%
 		margin-left: 0
+		order: 1
 		&:before
 			background-color: #008EAA
 		li button
@@ -151,6 +155,8 @@ ul.accordion li:nth-child(1):hover
 			background-color: #008EAA
 	#next
 		bottom: -17.5%
+.slick-prev
+	display: none
 .news_violet .news-block
 	.slick-dots
 		bottom: -17%
@@ -177,9 +183,6 @@ ul.accordion li:nth-child(1):hover
 	#next
 		bottom: -17.5%
 .slick-dots
-	bottom: 20%
-	max-width: 950px
-	margin-left: 150px
 	width: 100%
 	text-align: left
 	padding-left: 184px
@@ -224,17 +227,32 @@ ul.accordion li:nth-child(1):hover
 	transition: all .5 ease
  .slick-dots.slick-active button
     background-color: #FECC02
+.navbar
+	border-radius: 0
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover
+	background: none
+.nav>li>a:focus, .nav>li>a:hover 
+	background: none
+.navbar
+	margin-bottom: 0
+	display: flex
+
 .header
-	max-height: 80px
-	min-height: 80px
-	padding: 18px 0
-	border-bottom: 1px solid #fff
 	transition: all 200ms linear
+	border-bottom: 1px solid #fff
+	min-height: 80px
+	max-height: 80px
+	position: fixed
+	left: 0
+	z-index: 777
+	width: 100%
+	display: grid
 	&_btn
-        background-color: $accent
-        text-align: center
-        padding: 12px 16px
-        a
+		background-color: $accent
+		text-align: center
+		padding: 12px 16px
+		max-width: 180px
+		a
             color: #fff
             text-transform: uppercase
             font-size: 14px
@@ -259,7 +277,10 @@ ul.accordion li:nth-child(1):hover
 		background-color: #fff
 		border-bottom: 1px solid rgba(#002554, .1)
 
-
+.navbar-header
+	display: flex
+	justify-content: space-between
+	align-items: center
 .fixed-top.scrolled
     background-color: #002554!important
     opacity: .96
@@ -554,8 +575,8 @@ section.post-item
 	background-color: #002554
 	&-block
 		&__text
-			overflow: hidden
-			white-space: nowrap
+			max-height: 120px
+			min-height: 120px
 			p
 				font-size: 14px
 				color: rgba(255, 255, 255, 0.5)
@@ -564,8 +585,13 @@ section.post-item
 				font-size: 21px
 				color: #fff
 
+.slide-m-dots
+	position: absolute
+	display: flex
+	justify-content: space-between
+	bottom: -80px
+	z-index: 777
 
-		
 //expat
 .header
 	&_green
@@ -809,6 +835,8 @@ section.post-item
 			color: #002554
 //hamburger
 
+
+
 .hamburger
 	padding: 0 10px
 	outline: none
@@ -827,4 +855,71 @@ section.post-item
 	background-color: #002554
 .main-sub_small
 	font-size: 24px
+
+/* Descendant of .nav, Bootstrap specificity (shouldn't be like this)
+
+.nav > .dropdown-megamenu
+  position: static
+
+@media (max-width: 767px)
+  .navbar-nav .open .dropdown-container
+    position: static
+    float: none
+    width: auto
+    margin-top: 0
+    border: 0
+    box-shadow: none
+    border-radius: 0
+
+.dropdown-megamenu
+  > .dropdown-container
+	  position: absolute
+	  top: 100%
+	  left: 0
+	  right: 0
+	  max-width: 100%
+	  padding: 54px 0 120px 0
+	  background: rgba(0, 37, 84, 0.96)
+	  border: none
+	  border-radius: 0
+	  margin: 0
+	  box-shadow: none
+	  width: 100%
+
+
+  .dropdown-menu
+    display: block
+
+.link-image .media-object
+  float: left
+  margin-bottom: 7.5px
+
+.link-image-sm + .link-image-sm .media-object
+  margin-left: 7.5px
+
+.thumbnail
+  .caption
+    min-height: 120px
+
+  &:hover
+    text-decoration: none
+
+/* Link list
+
+.list-links
+  list-style: none
+  padding: 0
+
+  li
+    line-height: 1.7142857148
+
+  a
+    color: #555555
+
+    &:hover, &:focus, &:active
+      color: #22527b
+
+
+
+
 @import media 
