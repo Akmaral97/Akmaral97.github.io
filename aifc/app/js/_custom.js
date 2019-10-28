@@ -149,5 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		gutter: 16
 
 	});
+	$(document).mouseup(function (e){ // событие клика по веб-документу
+		let $nav = $(".fixed-top_black");
+		$nav.removeClass('scrolled');
+	});
 
 });
