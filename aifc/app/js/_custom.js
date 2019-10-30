@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		dots: true,
 		arrows: true,
 		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/icon arrow.svg" alt=""></button>',
-
+		appendArrows: '.slick-pagination',
+		appendDots: '.slick-pagination'
 	});
 	$(document)
 		.on('click.bs.dropdown.data-api', '.dropdown', function (e) { e.stopPropagation() })
@@ -29,9 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		$('.service-item__text').equalHeights();
 	});
 	$(".news-block").slick({
-		slidesToShow: 4,
-		slidesToScroll: 1,
+		slidesToShow: 3 ,
+		useTransform: false,
+		infinite: false,
 		autoplay: true,
+		dots: true,
+		arrows: true,
+		nextArrow: '<button id="next" type="button" class="btn-juliet"><img src="img/icon arrow.svg" alt=""></button>',
+		appendArrows: '.news-pagination',
+		appendDots: '.news-pagination',
 		responsive: [
 			{
 				breakpoint: 991,
@@ -131,11 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-	$('.dropdown-toggle').click(function () {
-	
+	$('.dropdown-toggle').click(function () {	
 			let $nav = $(".fixed-top_black");
-			$nav.addClass('scrolled');
-		
+			$nav.addClass('scrolled');	
 	});
 
 
@@ -143,12 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		$('.hamburger--collapse').toggleClass('is-active');
 	});
 	$('.lang-choose').niceSelect();
-	$('.grid-layout').masonry({
-		itemSelector: '.item',
-		columnWidth: 10,
-		gutter: 16
 
-	});
 	$(document).mouseup(function (e){ // событие клика по веб-документу
 		let $nav = $(".fixed-top_black");
 		$nav.removeClass('scrolled');

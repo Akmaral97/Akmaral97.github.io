@@ -1,15 +1,21 @@
-@media only screen and (min-width: 1025px) and (max-width: 1150px)
+@media only screen and (min-width: 1025px) and (max-width: 1200px)
     .main
         height: 100%
         &-slider
             &__item
                 &-img
                     height: 100%
+    .l
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr))
+
 @media only screen and (min-width: 1025px) and (max-width: 1440px)
     .news-container
         margin-left: 11.5%
 
+ 
 @media only screen and (max-width: 1024px)
+    .l
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr))
     .main
         height: 100%
         &-caption
@@ -51,14 +57,31 @@
             &__text
                 p
                     font-size: 18px
-    .item
-        width: 220px
-        img
-            width: 100%
-            height: auto
-    .width-2
-        width: 450px
+
+    .slick-pagination
+        max-width: 320px
+        max-height: 320px
+        min-width: 320px
+        min-height: 320px
+
+@media only screen and (max-width: 991px)
+    .l
+        grid-template-columns: repeat(auto-fit,minmax(165px,1fr))
+    .activities-block__text
+        top: 25px
+        left: 25px
+        p
+            font-size: 16px
+  
 @media only screen and (max-width: 768px)
+
+    .l
+        grid-template-columns: auto
+    .activities-block__text
+        top: 25px
+        left: 25px
+        p
+            font-size: 25px
     .item
         width: 220px
         img
@@ -108,9 +131,22 @@
     .post-more__text
         p
             font-size: 15px
+    .slick-pagination
+        max-width: 300px
+        max-height: 300px
+
+@media only screen and (max-width: 767px)
+    .slick-pagination
+        display: none
 @media only screen and (max-width: 480px)
-    .item
-        width: 100%
+    .l
+        grid-template-columns: auto
+    .activities-block__text
+        top: 25px
+        left: 25px
+        p
+            font-size: 16px
+            
     .post-items
         margin-top: 0
         padding: 15px
@@ -137,10 +173,9 @@
         &-slider
             &__item
                 &-img
-                    min-height: 320px
                     max-height: 320px
                     img
-                        width: auto
+                        width: 100%
                         height: 100%
     .site-block-title
         h2
@@ -165,6 +200,8 @@
     .post-content
         margin-top: 0
         padding: 30px
+    .slick-pagination
+        display: none
 @media only screen and (max-width: 411px)
     .header_btn
         display: none
