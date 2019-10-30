@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		$('.service-item__text').equalHeights();
 	});
 	$(".news-block").slick({
-		slidesToShow: 3 ,
+		slidesToShow: 3,
 		useTransform: false,
 		infinite: false,
 		autoplay: true,
@@ -60,6 +60,26 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		]
 	});
+
+	// breakpoint and up  
+	$(window).resize(function () {
+		if ($(window).width() >= 980) {
+
+			// when you hover a toggle show its dropdown menu
+			$(".navbar .dropdown-toggle").hover(function () {
+				$(this).parent().toggleClass("show");
+				$(this).parent().find(".dropdown-menu").toggleClass("show");
+			});
+
+			// hide the menu when the mouse leaves the dropdown
+			$(".navbar .dropdown-menu").mouseleave(function () {
+				$(this).removeClass("show");
+			});
+
+			// do something here
+		}
+	});
+
 
 	$('.management-blocks__btn a').click(function () {
 		console.log('Hello');
@@ -138,9 +158,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-	$('.dropdown-toggle').click(function () {	
-			let $nav = $(".fixed-top_black");
-			$nav.addClass('scrolled');	
+	$('.dropdown-toggle').hover(function () {
+		let $nav = $(".fixed-top_black");
+		$nav.addClass('scrolled');
+	});
+	// hide the menu when the mouse leaves the dropdown
+	$(".navbar .dropdown-menu").mouseleave(function () {
+		let $nav = $(".fixed-top_black");
+		$nav.removeClass('scrolled');
 	});
 
 
@@ -149,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 	$('.lang-choose').niceSelect();
 
-	$(document).mouseup(function (e){ // событие клика по веб-документу
+	$(document).mouseup(function (e) { // событие клика по веб-документу
 		let $nav = $(".fixed-top_black");
 		$nav.removeClass('scrolled');
 	});
